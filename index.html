@@ -3,10 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portofolio</title>
+<title>Portofolio - Fangga</title>
 
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
 <style>
@@ -14,27 +13,24 @@
 html{scroll-behavior:smooth;}
 
 body{
-    background: linear-gradient(135deg,#1f1c2c,#928DAB);
+    background: linear-gradient(135deg,#1f1c2c,#6a11cb);
     color:white;
-    transition:.4s ease;
 }
 
-body.light{
-    background:white;
-    color:#222;
-}
-
+/* NAVBAR */
 .navbar{
     position:fixed;top:0;left:0;width:100%;
-    background:rgba(255,255,255,0.08);
+    display:flex;justify-content:space-between;align-items:center;
+    padding:15px 45px;
+    background:rgba(255,255,255,0.1);
     backdrop-filter:blur(12px);
-    padding:15px 40px;display:flex;
-    justify-content:space-between;align-items:center;
-    border-bottom:1px solid rgba(255,255,255,0.1);
+    border-bottom:1px solid rgba(255,255,255,0.15);
     z-index:1000;
 }
 
-.nav-profile{display:flex;align-items:center;gap:12px;}
+.nav-profile{
+    display:flex;align-items:center;gap:12px;
+}
 
 .nav-profile img{
     width:45px;height:45px;border-radius:50%;
@@ -44,155 +40,157 @@ body.light{
 
 .nav-profile img:hover{transform:scale(1.1);}
 
-.nav-logo{text-decoration:none;color:white;font-weight:600;font-size:20px;}
+.nav-logo{color:white;font-size:22px;font-weight:600;text-decoration:none;}
 
-.nav-menu{display:flex;gap:22px;list-style:none;}
+.nav-menu{
+    display:flex;gap:25px;list-style:none;
+}
 
 .nav-menu li a{
-    padding:8px 16px;border-radius:8px;text-decoration:none;
-    color:white;font-weight:500;transition:.3s;
+    color:white;text-decoration:none;font-weight:500;
+    padding:8px 14px;border-radius:8px;
+    transition:.3s;
 }
 
-.nav-menu li a:hover{background:#6a11cb;}
+.nav-menu li a:hover,
+.nav-menu li a.active{
+    background:#6a11cb;
+}
 
-.menu-toggle{display:none;font-size:30px;color:white;cursor:pointer;}
+.menu-toggle{
+    color:white;font-size:28px;
+    display:none;cursor:pointer;
+}
 
+/* HEADER */
 header{
-    text-align:center;padding:160px 20px 80px;
+    text-align:center;padding:170px 20px 80px;
 }
-header h1{font-size:45px;font-weight:700;}
-
-header p{opacity:.8;}
+header h1{font-size:45px;font-weight:700;margin-bottom:10px;opacity:.95;}
+header p{opacity:.8;font-size:17px;}
 
 .cv-btn{
     display:inline-block;margin-top:25px;padding:14px 28px;
     border:2px solid #6a11cb;border-radius:30px;color:white;
     text-decoration:none;font-weight:600;transition:.3s;
 }
-
 .cv-btn:hover{background:#6a11cb;transform:scale(1.05);}
 
+
+/* SECTION STYLE */
 section{
-    width:85%;max-width:950px;margin:0 auto 45px;
+    width:85%;max-width:950px;margin:0 auto 60px;
     background:rgba(255,255,255,0.08);
-    padding:30px;border-radius:18px;
+    padding:32px;border-radius:20px;
     backdrop-filter:blur(10px);
-    box-shadow:0 0 25px rgba(0,0,0,.2);
 }
-
 section h2{
-    border-left:4px solid #6a11cb;padding-left:12px;
-    font-size:28px;margin-bottom:15px;
+    font-size:30px;font-weight:600;
+    margin-bottom:18px;border-left:5px solid #6a11cb;padding-left:12px;
 }
 
-.skills div, .projects div, .education div {
-    background:rgba(255,255,255,0.15);
-    padding:12px;border-radius:12px;margin:10px 0;
-    transition:.3s;cursor:pointer;
+/* SKILLS */
+.skills div{
+    background:rgba(255,255,255,0.12);
+    border-radius:12px;padding:12px;margin-top:8px;
 }
-
-.skills div:hover, .projects div:hover, .education div:hover{
-    background:#6a11cb;transform:translateY(-4px);
-}
+.skills div:hover{background:#6a11cb;transition:.3s;}
 
 .skills-icons{
-    margin-top:18px;display:flex;justify-content:center;gap:25px;
+    display:flex;justify-content:center;gap:25px;margin-top:20px;
 }
-
-.skills-icons img{
-    width:50px;transition:.3s;
-}
-
+.skills-icons img{width:50px;transition:.3s;filter:brightness(0.9);}
 .skills-icons img:hover{transform:scale(1.2);}
 
-#contact{text-align:center;padding:60px 20px;}
+
+/* PROJECT MODERN CARD */
+.project-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:25px;
+}
+
+.project-card{
+    padding:22px;
+    background:rgba(255,255,255,0.08);
+    border-radius:18px;
+    transition:.3s;
+    cursor:pointer;
+    border:1px solid rgba(255,255,255,0.1);
+}
+.project-card:hover{
+    background:#6a11cb;
+    transform:translateY(-6px) scale(1.02);
+}
+
+.project-header{display:flex;justify-content:space-between;align-items:center;}
+
+.status{
+    font-size:12px;padding:6px 14px;border-radius:20px;font-weight:600;
+}
+.finished{background:#2ecc71;}
+.progress{background:#f39c12;}
+
+.project-card p{opacity:.9;margin:10px 0;}
+
+.tech-badges span,
+.feature-list span{
+    background:rgba(255,255,255,0.18);
+    padding:6px 10px;border-radius:18px;font-size:12px;
+    margin-right:6px;margin-top:5px;display:inline-block;
+}
+.view-btn{
+    display:inline-block;margin-top:15px;text-decoration:none;
+    color:white;font-weight:600;transition:.3s;border-bottom:2px solid transparent;
+}
+.project-card:hover .view-btn{border-bottom:2px solid white;}
+
+
+/* CONTACT */
+#contact{text-align:center;}
 .contact-container{
-    display:flex;justify-content:center;gap:15px;
-    flex-wrap:wrap;margin-top:20px;
+    display:flex;flex-wrap:wrap;justify-content:center;gap:18px;margin-top:25px;
 }
 .contact-item{
-    display:flex;align-items:center;gap:8px;background:white;
-    padding:12px 22px;border-radius:40px;text-decoration:none;
-    font-weight:600;font-size:1rem;transition:0.3s ease;
-    border:2px solid transparent;
+    display:flex;align-items:center;gap:10px;
+    padding:14px 22px;border-radius:40px;font-weight:600;
+    border:2px solid white;color:white;text-decoration:none;
+    transition:.3s;font-size:15px;
 }
-.contact-item.whatsapp{border-color:#25D366;color:#25D366;}
-.contact-item.instagram{border-color:#E1306C;color:#E1306C;}
-.contact-item.facebook{border-color:#1877F2;color:#1877F2;}
-.contact-item.email{border-color:#ff8800;color:#ff8800;}
+.contact-item:hover{transform:scale(1.07);background:white;color:black;}
 
-.contact-item:hover{
-    background:#2575fc;color:white!important;border-color:white;
-    transform:scale(1.07);
+/* FOOTER */
+footer{
+    background:#0d0d0d;padding:35px;text-align:center;margin-top:50px;
 }
-.contact-item i{font-size:1.3rem;}
+.footer-social a{
+    background:white;color:#111;padding:10px;
+    width:42px;height:42px; 
+    line-height:42px;border-radius:50%;
+    text-align:center;text-decoration:none;margin:6px;
+    font-size:20px;display:inline-block;transition:.3s;
+}
+.footer-social a:hover{background:#6a11cb;color:white;transform:translateY(-5px);}
+.footer-bottom{font-size:13px;margin-top:15px;opacity:.6;}
 
-footer{text-align:center;padding:30px;font-size:14px;opacity:.8;}
-
+/* RESPONSIVE */
 @media(max-width:780px){
-    .nav-menu{display:none;flex-direction:column;
-        background:#0000007c;padding:10px;position:absolute;
-        right:20px;top:70px;border-radius:10px;width:160px;
-    }
     .menu-toggle{display:block;}
+    .nav-menu{
+        position:absolute;top:70px;right:20px;
+        background:#0000009c;padding:15px;border-radius:15px;
+        flex-direction:column;display:none;width:180px;
+    }
+    .nav-menu.show{display:flex;}
 }
-.nav-menu.show{display:flex;}
-
-footer {
-    background: #111;
-    color: #fff;
-    padding: 25px 0;
-    text-align: center;
-    margin-top: 50px;
-}
-
-.footer-container {
-    max-width: 900px;
-    margin: auto;
-}
-
-footer p {
-    font-size: 14px;
-    margin: 8px 0;
-}
-
-.footer-social {
-    margin: 10px 0;
-}
-
-.footer-social a {
-    display: inline-block;
-    background: #fff;
-    color: #111;
-    font-size: 20px;
-    margin: 6px;
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
-    text-align: center;
-    border-radius: 50%;
-    text-decoration: none;
-    transition: 0.3s;
-}
-
-.footer-social a:hover {
-    background: #ff9900;
-    color: white;
-    transform: translateY(-4px);
-}
-
-.footer-bottom {
-    font-size: 12px;
-    opacity: 0.6;
-}
-
 </style>
 </head>
 
 <body>
+
 <nav class="navbar">
     <div class="nav-profile">
-        <img src="po.jpeg" alt="">
+        <img src="po.jpeg">
         <a href="#" class="nav-logo">Fangga Briliando</a>
     </div>
 
@@ -209,87 +207,97 @@ footer p {
 
 <header data-aos="fade-up">
     <h1>👋 Halo, Saya Fangga Briliando</h1>
-    <p>Siswa SMK Negeri 3 Kendal | Rekayasa Perangkat Lunak | Dusun Ngesrep 01/03</p>
+    <p>Siswa SMK Negeri 3 Kendal | Rekayasa Perangkat Lunak</p>
 </header>
 
 <section id="about" data-aos="fade-up">
-    <h2>Tentang Saya</h2>
-    <p>
-        Saya adalah pelajar jurusan Rekayasa Perangkat Lunak (RPL) yang memiliki ketertarikan dalam pengembangan website. Saya terbiasa menggunakan HTML, CSS, PHP, MySQL, serta tools seperti Visual Studio Code dalam proses belajar maupun menyelesaikan tugas sekolah.
-        Saya senang mempelajari hal baru di bidang pemrograman dan sudah pernah membuat beberapa proyek sederhana sebagai latihan maupun kebutuhan pembelajaran dari sekolah.
-    </p>
+<h2>Tentang Saya</h2>
+<p>
+Saya adalah pelajar jurusan Rekayasa Perangkat Lunak (RPL) yang memiliki ketertarikan dalam pengembangan website. Saya terbiasa menggunakan HTML, CSS, PHP, MySQL, serta tools seperti Visual Studio Code dalam proses belajar maupun menyelesaikan tugas sekolah.
+</p>
 </section>
 
 <section id="skills" data-aos="fade-up">
-    <h2>Keahlian</h2>
-    <div class="skills">
-        <div>HTML, CSS, JavaScript</div>
-        <div>PHP & MySQL</div>
-        <div>UI/UX Basic</div>
-        <div>Responsive Website</div>
-    </div>
-
-    <div class="skills-icons">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg">
-    </div>
+<h2>Keahlian</h2>
+<div class="skills">
+    <div>HTML, CSS, JavaScript</div>
+    <div>PHP & MySQL</div>
+    <div>UI/UX Basic</div>
+    <div>Responsive Website Development</div>
+</div>
+<div class="skills-icons">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg">
+</div>
 </section>
 
 <section id="projects" data-aos="fade-up">
-    <h2>Proyek / Pengalaman</h2>
-    <div class="projects">
-        <div><strong>📌 Sistem Inventaris Barang</strong><br>CRUD • Login • PHP • MySQL • Dashboard Admin</div>
-        <div><strong>📌 Website Portfolio</strong><br>Frontend dengan HTML & CSS</div>
+<h2>Proyek</h2>
+
+<div class="project-grid">
+
+    <div class="project-card">
+        <div class="project-header">
+            <h3>📌 Sistem Inventaris Barang</h3>
+            <span class="status finished">Selesai</span>
+        </div>
+        <p>Aplikasi CRUD berbasis web dengan login, dashboard dan manajemen data barang.</p>
+        <div class="feature-list">
+            <span>Login</span><span>CRUD</span><span>Dashboard</span>
+        </div>
+        <div class="tech-badges">
+            <span>PHP</span><span>MySQL</span><span>HTML</span><span>CSS</span>
+        </div>
+        <a href="#" class="view-btn">🔗 Detail</a>
     </div>
+
+    <div class="project-card">
+        <div class="project-header">
+            <h3>📌 Website Portfolio</h3>
+            <span class="status progress">On Progress</span>
+        </div>
+        <p>Website pribadi responsif menggunakan HTML, CSS dan animasi AOS.</p>
+        <div class="feature-list"><span>UI/UX</span><span>Responsive</span></div>
+        <div class="tech-badges">
+            <span>HTML</span><span>CSS</span><span>JavaScript</span>
+        </div>
+        <a href="#" class="view-btn">🔗 Detail</a>
+    </div>
+
+</div>
 </section>
 
 <section id="education" data-aos="fade-up">
-    <h2>Pendidikan</h2>
-    <div class="education">
-        <div><strong>SMK Negeri 3 Kendal</strong><br>RPL | Kelas 12</div>
-    </div>
+<h2>Pendidikan</h2>
+<div class="education">
+    <div><strong>SMK Negeri 3 Kendal</strong><br>RPL | Kelas 12</div>
+</div>
 </section>
 
 <section id="contact" data-aos="fade-up">
-    <h2>Kontak Saya</h2>
-    <div class="contact-container">
-        <a href="https://wa.me/6281234567890" target="_blank" class="contact-item whatsapp">
-            <i class="fab fa-whatsapp"></i> WhatsApp
-        </a>
-        <a href="https://www.instagram.com/panggauhuy" target="_blank" class="contact-item instagram">
-            <i class="fab fa-instagram"></i> Instagram
-        </a>
-        <a href="https://facebook.com/" target="_blank" class="contact-item facebook">
-            <i class="fab fa-facebook"></i> Facebook
-        </a>
-        <a href="mailto:fanggabriliando6622@gmail.com" class="contact-item email">
-            <i class="fas fa-envelope"></i> Email
-        </a>
-    </div>
+<h2>Kontak Saya</h2>
+
+<div class="contact-container">
+    <a href="https://wa.me/6281234567890" target="_blank" class="contact-item"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    <a href="https://instagram.com/panggauhuy" target="_blank" class="contact-item"><i class="fab fa-instagram"></i> Instagram</a>
+    <a href="https://facebook.com/" target="_blank" class="contact-item"><i class="fab fa-facebook"></i> Facebook</a>
+    <a href="mailto:fanggabriliando6622@gmail.com" class="contact-item"><i class="fas fa-envelope"></i> Email</a>
+</div>
 </section>
 
 <footer>
-    <div class="footer-container">
-        <p>© 2025 Fangga Briliando | Portfolio Pribadi</p>
-
-        <div class="footer-social">
-            <a href="mailto:fanggabriliando6622@gmail.com">📧</a>
-            <a href="https://wa.me/628123456789">💬</a>
-            <a href="https://instagram.com/username">📷</a>
-            <a href="https://facebook.com/username">📘</a>
-        </div>
-
-        <p class="footer-bottom">Dibuat dengan ❤️ menggunakan HTML & CSS</p>
-    </div>
+<p>© 2025 Fangga Briliando — Portfolio</p>
+<p class="footer-bottom">Dibangun dengan ❤️ menggunakan HTML, CSS, & JavaScript</p>
 </footer>
-
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
 AOS.init();
-function toggleMenu(){document.querySelector('.nav-menu').classList.toggle('show');}
+function toggleMenu(){
+    document.querySelector('.nav-menu').classList.toggle('show');
+}
 </script>
 
 </body>
